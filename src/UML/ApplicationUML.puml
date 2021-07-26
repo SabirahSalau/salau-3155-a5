@@ -1,0 +1,50 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Application
+{
+    main()
+    start()
+}
+
+class Items
+{
+    name: String
+    serial: String
+    price: String
+
+    getName()
+    getSerial()
+    getPrice()
+
+    setName(String name)
+    setSerial(String serial)
+    setPrice(String price)
+
+}
+
+Class Inventory
+{
+    ObservableList<Items>
+}
+
+Class ItemController
+{
+    addItem()
+    deleteItem()
+    editItem()
+
+    addItemClicked()
+    deleteItemClicked()
+    editItemClicked()
+    saveClicked()
+    loadClicked()
+}
+
+javafx.App <|-- Application
+Application -- Items
+ItemController <|-- Items
+Application <|-- Inventory
+
+
+@enduml
