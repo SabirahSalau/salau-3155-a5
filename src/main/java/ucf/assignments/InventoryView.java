@@ -1,3 +1,5 @@
+package ucf.assignments;
+
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,7 +16,7 @@ public class InventoryView extends Application {
     Stage window;
     Button button;
     TableView<Items> table;
-    TextField nameInput, priceInput, quantityInput;
+    TextField nameInput, priceInput, serialInput;
 
 
     public static void main(String[] args){
@@ -37,9 +39,9 @@ public class InventoryView extends Application {
         priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
 
         //Quantity column
-        TableColumn<Items, Integer> quantityColumn = new TableColumn<>("Quantity");
+        TableColumn<Items, Integer> quantityColumn = new TableColumn<>("Serial");
         quantityColumn.setMinWidth(100);
-        quantityColumn.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        quantityColumn.setCellValueFactory(new PropertyValueFactory<>("serial"));
 
         //NameInput
         nameInput = new TextField();
@@ -52,8 +54,8 @@ public class InventoryView extends Application {
         //priceInput.setMinWidth(100);
 
         //NameInput
-        quantityInput = new TextField();
-        quantityInput.setPromptText("Quantity");
+        serialInput = new TextField();
+        serialInput.setPromptText("Serial");
         //quantityInput.setMinWidth(100);
 
         //Buttons
@@ -65,7 +67,7 @@ public class InventoryView extends Application {
         HBox hBox = new HBox();
         hBox.setPadding(new Insets(10, 10, 10 ,10));
         hBox.setSpacing(10);
-        hBox.getChildren().addAll(nameInput, priceInput, quantityInput, addButton, deleteButton);
+        hBox.getChildren().addAll(nameInput, priceInput, serialInput, addButton, deleteButton);
 
         table = new TableView<>();
         table.setItems(getProducts());
@@ -96,12 +98,12 @@ public class InventoryView extends Application {
         Items product = new Items();
         product.setName(nameInput.getText());
         product.setPrice(Double.parseDouble(priceInput.getText()));
-        product.setQuantity(Integer.parseInt(quantityInput.getText()));
+        product.setQuantity(serialInput.getText());
         table.getItems().add(product);
 
         nameInput.clear();
         priceInput.clear();
-        quantityInput.clear();
+        serialInput.clear();
     }
 
 

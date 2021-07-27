@@ -1,19 +1,21 @@
+package ucf.assignments;
+
 public class Items {
 
     private String name;
     private double price;
-    private int quantity;
+    private String serial;
 
     public Items(){
         this.name = "";
         this.price = 0;
-        this.quantity = 0;
+        this.serial = "";
     }
 
-    public Items(String name, double price, int quantity){
+    public Items(String name, double price, String serial){
         this.name = name;
         this.price = price;
-        this. quantity = quantity;
+        this. serial = serial;
     }
 
     public String getName() {
@@ -32,11 +34,11 @@ public class Items {
         this.price = price;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public String getSerial() {
+        return serial;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setQuantity(String serial) {
+        this.serial = serial;
     }
 }
