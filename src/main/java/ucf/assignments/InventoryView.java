@@ -38,10 +38,10 @@ public class InventoryView extends Application {
         priceColumn.setMinWidth(100);
         priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
 
-        //Quantity column
-        TableColumn<Items, Integer> quantityColumn = new TableColumn<>("Serial");
-        quantityColumn.setMinWidth(100);
-        quantityColumn.setCellValueFactory(new PropertyValueFactory<>("serial"));
+        //Serial column
+        TableColumn<Items, Integer> serialColumn = new TableColumn<>("Serial");
+        serialColumn.setMinWidth(100);
+        serialColumn.setCellValueFactory(new PropertyValueFactory<>("serial"));
 
         //NameInput
         nameInput = new TextField();
@@ -56,7 +56,7 @@ public class InventoryView extends Application {
         //NameInput
         serialInput = new TextField();
         serialInput.setPromptText("Serial");
-        //quantityInput.setMinWidth(100);
+
 
         //Buttons
         Button addButton = new Button("Add");
@@ -71,7 +71,7 @@ public class InventoryView extends Application {
 
         table = new TableView<>();
         table.setItems(getProducts());
-        table.getColumns().addAll(nameColumn, priceColumn, quantityColumn);
+        table.getColumns().addAll(nameColumn, priceColumn, serialColumn);
 
 
         VBox layout = new VBox(10);
@@ -98,7 +98,7 @@ public class InventoryView extends Application {
         Items product = new Items();
         product.setName(nameInput.getText());
         product.setPrice(Double.parseDouble(priceInput.getText()));
-        product.setQuantity(serialInput.getText());
+        product.setSerial(serialInput.getText());
         table.getItems().add(product);
 
         nameInput.clear();

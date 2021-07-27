@@ -38,7 +38,7 @@ public class Items {
         return serial;
     }
 
-    public void setQuantity(String serial) {
+    public void setSerial(String serial) {
         this.serial = serial;
     }
 }
